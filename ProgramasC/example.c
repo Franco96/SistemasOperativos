@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(void){
+    
+    
+    fork();
+    fork();
+ 
+    
+    
+    puts("hola mundoooo soy el mejorr ");
+    
+    
+    return 0;
+    
+    
+    
+}

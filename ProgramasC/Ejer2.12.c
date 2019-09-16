@@ -2,36 +2,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
-
-int main(){
-    
+int main(int argc, char *argv[]){
     
    
-    int n = 3;
+    int n;
     
-    int i = 0;
+   // printf("Cantidad de parametos %d\n",argc);
     
-    int pid1 = 1;
-       
-     
+    n =  atoi(argv[1]);
+    
+  //  printf("Primer Parametro es %d\n",n);
+    
+    
+ 
+    
+    int i;
+    
+     pid_t pid;
       
-        for(i= 0; i<n;i++){
+        for(i= 1; i<=n;i++){
        
                 
-            
-                            if(pid1>0){//Entra el padre
-            
-                                     pid1 = fork();
+                        pid = fork();
                                      
-                                    if  (pid1 == 0 )
-                                            { //Entra el hijo 
-                                            printf("Soy el hijo %i (%d, hijo de %d)\n",i,getpid(), getppid());
-                                            
-                                                
-                                            }
+                      if  (pid == 0 ){ //Entra el hijo 
+                                        printf("Soy el hijo %i (%d, hijo de %d)\n",i,getpid(), getppid());
+                                        sleep(i);
+                                        break;   //con esto el hijo sale del for
+                                }
+                       else{//Entra el padre
+                           
+                      wait(NULL);     
+                           
+                      }         
+                                
 
-                            }
+                        
+                    
             
             
 

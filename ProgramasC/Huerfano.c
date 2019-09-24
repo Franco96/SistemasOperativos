@@ -18,7 +18,7 @@ int main(){
     
     if(child_pid == 0 ){//entra al hijo 
     
-        //sleep(5);
+        sleep(5);
         
         printf("Holaaaaa\n");
         printf("Soy el hijo con PID %d y mi papa es %d\n",getpid(),getppid());
@@ -28,6 +28,7 @@ int main(){
         
         if(child_pid >0 ){//Entra el padre
             
+            printf("SOY EL PADRE Y MI PADRE ES %d\n",getppid());
             wait(NULL);
             
         }
